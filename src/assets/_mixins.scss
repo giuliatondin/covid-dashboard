@@ -1,0 +1,6 @@
+@mixin box-shadow {
+    background: $primary-color;
+    background: -moz-linear-gradient(180deg, $primary-color 45%, rgba($primary-color, 0.6) 98%);
+    background: -webkit-linear-gradient(180deg, $primary-color 45%, rgba($primary-color, 0.6) 98%);
+    background: linear-gradient(180deg, $primary-color 45%, rgba($primary-color, 0.6) 98%);
+}
