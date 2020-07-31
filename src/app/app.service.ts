@@ -8,6 +8,7 @@ import { Observable } from 'rxjs';
 export class AppService {
 
   readonly url = 'https://covid19-brazil-api.now.sh/api/report/v1/';
+  readonly urlFlag = 'https://devarthurribeiro.github.io/covid19-brazil-api/static/flags/';
 
   constructor(private http: HttpClient) { }
 

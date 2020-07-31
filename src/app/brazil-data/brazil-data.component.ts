@@ -42,4 +42,8 @@ export class BrazilDataComponent implements OnInit {
     })
   }
 
+  gotoDetails(data){
+    this.router.navigate(['/detalhes', data.uf]);
+  }
+
 }

@@ -1,6 +1,8 @@
 <div class="row justify-content-center">
-    <a href="" class="box__state" *ngFor="let state of states">
-        <p class="box__state--title"> {{state.uf}} </p>
-        <p class="box__state--description"> {{state.cases}} <br> casos </p>
-    </a>
+    <div *ngFor="let state of states">
+        <div class="box__state" (click)="gotoDetails(state)">
+            <p class="box__state--title"> {{state.uf}} </p>
+            <p class="box__state--description"> {{state.cases}} <br> casos </p>
+        </div>
+    </div>
 </div>
