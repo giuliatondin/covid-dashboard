@@ -21,7 +21,11 @@ export class AppService {
   }
 
   getPerCountry(name: any): Observable<any>{
-    return this.http.get(`${this.url}${name}`)
+    return this.http.get(`${this.url}${name}`);
+  }
+
+  getStateFlag(initials: string): Observable<any>{
+    return this.http.get(`${this.urlFlag}${initials}.png`); 
   }
 
 }

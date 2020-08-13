@@ -1,20 +1,32 @@
 <div class="home">
-    <h1 class="title">Informações Covid-19</h1>
-    <div class="row">
-        <div class="home__options">
-            <a href="" class="home__options--box">
-                <img src="../../assets/imgs/icon-symptom.svg" class="home__options--icon" alt="">
-                <span> Entenda os sintomas </span>
-            </a>
-            <a href="" class="home__options--box">
-                <img src="../../assets/imgs/icon-prevention.svg" class="home__options--icon" alt="">
-                <span> Saiba como previnir </span>
-            </a>
-            <a href="" class="home__options--box">
-                <img src="../../assets/imgs/icon-information.svg" class="home__options--icon" alt="">
-                <span> Mantenha-se informado </span>
-            </a>
+    <div class="container">
+        <div class="row flex-column">
+            <h1 class="title text">Dashboard Covid-19 </h1>
+            <p class="text">Dados atualizados do Coronavírus no Brasil</p>
         </div>
-        <img src="../../assets/imgs/icon-research.svg" class="home__icon" alt="">
+        <div class="position-bottom">
+            <div class="row">
+                <div class="home__data">
+                    <p> {{data.confirmed}} </p>
+                    <span>Casos confirmados</span>
+                </div>
+                <div class="home__data">
+                    <p> {{data.cases}} </p>
+                    <span>Casos ativos</span>
+                </div>
+                <div class="home__data">
+                    <p> {{data.deaths}} </p>
+                    <span>Mortes</span>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+<div class="container">
+    <div class="row">
+        <div class="state__block" *ngFor="let state of states">
+            <img [src]="getFlag(state.uf)" alt="Bandeira do estado">
+            <p>{{state.uf}}</p>
+        </div>
     </div>
 </div>

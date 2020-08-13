@@ -1,4 +1,7 @@
 import { Component, OnInit } from '@angular/core';
+import { RouterModule } from '@angular/router';
+import { AppService } from '../app.service';
+import { HttpClient } from '@angular/common/http';
 
 @Component({
   selector: 'app-home',
@@ -7,9 +10,51 @@ import { Component, OnInit } from '@angular/core';
 })
 export class HomeComponent implements OnInit {
 
-  constructor() { }
+  country: string;
+  data: any;
+  states: any[] = [];
+  flags: any[] = [];
 
-  ngOnInit(): void {
+  constructor(private router: RouterModule, private appService: AppService) { }
+
+  ngOnInit() {
+    this.country = 'brazil';
+    this.getCountryData();
+    this.getList();
+  }
+
+  getCountryData() {
+    this.appService.getPerCountry(this.country).subscribe(data => {
+      if(data.Response != 'False'){
+        const items = [];
+        for(const key in data){
+          if(data.hasOwnProperty(key)){
+            items.push(data[key]);
+          }
+        }
+        this.data = items[0];
+      }
+    })
+  }
+
+  getList() {
+    this.appService.getBrazilList().subscribe(data => {
+      if(data.Response != 'False'){
+        const items = [];
+        for(const key in data){
+          if(data.hasOwnProperty(key)){
+            items.push(data[key]);
+          }
+        }
+        this.states = items[0];
+      }
+    })
+  }
+
+  getFlag(uf){
+    this.appService.getStateFlag(uf).subscribe(data => {
+      return data;
+    })
   }
 
 }

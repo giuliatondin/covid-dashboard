@@ -17,15 +17,6 @@ export class BrazilDataComponent implements OnInit {
 
   ngOnInit(): void {
     this.getList();
-    this.getCountryData();
-  }
-
-  getCountryData() {
-    this.appService.getPerCountry(this.country).subscribe(data => {
-        if(data.Response != 'False'){
-          this.data = data;
-        }
-      })
   }
 
   getList() {
@@ -38,6 +29,7 @@ export class BrazilDataComponent implements OnInit {
           }
         }
         this.states = items[0];
+        console.log(this.states);
       }
     })
   }
